@@ -1,0 +1,247 @@
+/*
+	getElementsByClassName
+	Developed by Robert Nyman, http://www.robertnyman.com
+	Code/licensing: http://code.google.com/p/getelementsbyclassname/
+*/
+var retryCount = 0;
+var maxRetry = 50;
+
+var getElementsByClassName = function (className, tag, elm){
+	if (document.getElementsByClassName) {
+		getElementsByClassName = function (className, tag, elm) {
+			elm = elm || document;
+			var elements = elm.getElementsByClassName(className),
+				nodeName = (tag)? new RegExp("\\b" + tag + "\\b", "i") : null,
+				returnElements = [],
+				current;
+			for(var i=0, il=elements.length; i<il; i+=1){
+				current = elements[i];
+				if(!nodeName || nodeName.test(current.nodeName)) {
+					returnElements.push(current);
+				}
+			}
+			return returnElements;
+		};
+	}
+	else if (document.evaluate) {
+		getElementsByClassName = function (className, tag, elm) {
+			tag = tag || "*";
+			elm = elm || document;
+			var classes = className.split(" "),
+				classesToCheck = "",
+				xhtmlNamespace = "http://www.w3.org/1999/xhtml",
+				namespaceResolver = (document.documentElement.namespaceURI === xhtmlNamespace)? xhtmlNamespace : null,
+				returnElements = [],
+				elements,
+				node;
+			for(var j=0, jl=classes.length; j<jl; j+=1){
+				classesToCheck += "[contains(concat(' ', @class, ' '), ' " + classes[j] + " ')]";
+			}
+			try	{
+				elements = document.evaluate(".//" + tag + classesToCheck, elm, namespaceResolver, 0, null);
+			}
+			catch (e) {
+				elements = document.evaluate(".//" + tag + classesToCheck, elm, null, 0, null);
+			}
+			while ((node = elements.iterateNext())) {
+				returnElements.push(node);
+			}
+			return returnElements;
+		};
+	}
+	else {
+		getElementsByClassName = function (className, tag, elm) {
+			tag = tag || "*";
+			elm = elm || document;
+			var classes = className.split(" "),
+				classesToCheck = [],
+				elements = (tag === "*" && elm.all)? elm.all : elm.getElementsByTagName(tag),
+				current,
+				returnElements = [],
+				match;
+			for(var k=0, kl=classes.length; k<kl; k+=1){
+				classesToCheck.push(new RegExp("(^|\\s)" + classes[k] + "(\\s|$)"));
+			}
+			for(var l=0, ll=elements.length; l<ll; l+=1){
+				current = elements[l];
+				match = false;
+				for(var m=0, ml=classesToCheck.length; m<ml; m+=1){
+					match = classesToCheck[m].test(current.className);
+					if (!match) {
+						break;
+					}
+				}
+				if (match) {
+					returnElements.push(current);
+				}
+			}
+			return returnElements;
+		};
+	}
+	return getElementsByClassName(className, tag, elm);
+};
+
+function querySt(key) {
+	qs = window.location.search.substring(1);
+	qp = qs.split("&");
+	for (i=0;i<qp.length;i++) {
+		kp = qp[i].split("=");
+		if (kp[0] == key) {
+			return kp[1];
+		}
+	}
+}
+
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		}
+	}
+}
+
+function doPt(pt)
+{
+	var matches = getElementsByClassName("pt_1");
+	for(var i = 0; i < matches.length; i++)
+	{
+		var spn = matches[i];
+		if(pt == 1) {spn.innerHTML = '1.877.857.2771';}
+	}
+	var matches = getElementsByClassName("pt_2");
+	for(var i = 0; i < matches.length; i++)
+	{
+		var spn = matches[i];
+		if(pt == 1) {spn.innerHTML = '';}
+	}
+	
+	// PPC Log
+	var head = document.getElementsByTagName("head")[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+	script.src = 'http://log.ewoss.net/jquery-1.3.2.min.js';
+	head.appendChild(script);
+	
+	script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = 'http://log.ewoss.net/json.js';
+	head.appendChild(script);
+	
+	script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = 'http://log.ewoss.net/Logger.ashx?proxy';
+	head.appendChild(script);
+	
+    setTimeout("doLog()", 400);
+	// END PPC Log
+}
+
+function pt_l()
+{
+	var pt = querySt("pt");
+	var pc = readCookie('pt');
+
+	if(pt)
+	{
+		createCookie('pt', '1', 30);
+		doPt(pt);
+	}else if(pc)
+	{
+		doPt(pc);
+	}
+}
+
+
+function doLog()
+{
+    if(typeof $=='function')
+    {
+        if(typeof Logger=='function')
+        {
+            var s = new Logger();
+            s.channel = new JQueryChannel({ jsonp: true });
+            s.kwargs = true;
+			
+			var keyword = querySt("k");
+			var source = querySt("s");
+			var campaign = querySt("c");
+			var adgroup = querySt("a");
+			var clientId = querySt("id");
+			var url = document.location;
+			
+			if(keyword && source && campaign && adgroup && clientId) {
+				s.insertppclog(keyword, source, campaign, adgroup, url, clientId, function() {}); 
+			}
+        }else
+        {
+            retryCount++;
+            if(retryCount < maxRetry)
+            {
+                setTimeout("doLog()", 200);
+            }
+        }
+    }else
+    {
+        retryCount++;
+        if(retryCount < maxRetry)
+        {
+            setTimeout("doLog()", 200);
+        }
+    }
+}
+
+function JQueryChannel(options) {
+    options = options || {};
+    this.rpc = function(call) {
+        if (call.request.params.constructor === Array)
+            throw new Error('Positional parameters are not supported.');
+        var params = [];
+        $.each(call.request.params, function(k, v) {
+            if (v) params.push(k + '=' + encodeURIComponent(v));
+        });
+        var ajax_REQ = $.ajax({
+            url: call.url + '/' + call.request.method,
+            type: 'GET',
+            jsonp: options.jsonp ? 'jsonp' : null,
+            cache: options.cache,
+            data: params.join('&'),
+            dataType: options.jsonp ? 'jsonp' : 'json',
+            timeout: 10000,
+            // TODO error: ...
+            success: function(data) {
+                if (ajax_REQ) { ajax_REQ.abort(); }
+                call.callback(data);
+            }
+        });
+    }
+}
+
+
+addLoadEvent(pt_l);
