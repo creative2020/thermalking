@@ -14,4 +14,10 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col-xs-12">
+		<?php get_template_part ( 'section', 'a' ); ?>
+	</div>
+</div>
+
 <?php get_footer(); ?>

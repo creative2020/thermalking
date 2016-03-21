@@ -1,7 +1,10 @@
 /*
 THEME NAME: thermalking
-primary: #792a41
-action: #efba12 (also known as rgb(239,186,18), used in the svg)
+
+Colors...
+dark purple: #792a41
+light purple: #fdf7e6
+dark yellow: #efba12 (also known as rgb(239,186,18), used in the svg)
 */
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
@@ -98,11 +101,23 @@ nav,
 	}
 }
 
-/*
- */
+/* */
+#section-a .container {
+	text-decoration: none;
+	text-align: center;
+	color: inherit;
+}
+#section-a .caption {
+	color: inherit;
+}
+
+/* */
 .footer-contact-row {
-	/*line-height: 2;*/
+	background-color: #fdf7e6;
 	background-image: url("data:image/svg+xml;utf8,<svg viewBox='-950 -886 2300 3692' xmlns='http://www.w3.org/2000/svg'><circle id='foo' style='fill:rgba(239,186,18,0.5);' cx='896' cy='960' r='1575' /><path style='fill:rgb(239,186,18);' d='M1664 1504v-768q-32 36-69 66-268 206-426 338-51 43-83 67t-86.5 48.5-102.5 24.5h-2q-48 0-102.5-24.5t-86.5-48.5-83-67q-158-132-426-338-37-30-69-66v768q0 13 9.5 22.5t22.5 9.5h1472q13 0 22.5-9.5t9.5-22.5zm0-1051v-24.5l-.5-13-3-12.5-5.5-9-9-7.5-14-2.5h-1472q-13 0-22.5 9.5t-9.5 22.5q0 168 147 284 193 152 401 317 6 5 35 29.5t46 37.5 44.5 31.5 50.5 27.5 43 9h2q20 0 43-9t50.5-27.5 44.5-31.5 46-37.5 35-29.5q208-165 401-317 54-43 100.5-115.5t46.5-131.5zm128-37v1088q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-1088q0-66 47-113t113-47h1472q66 0 113 47t47 113z'/></svg>");
 	background-repeat: no-repeat;
 	background-position: right;
+}
+.footer-contact-row .container {
+	text-decoration: none;
 }

@@ -14,7 +14,9 @@
 
 <div class="row">
 	<div class="col-xs-12" style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap;">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" style="width: 32rem; max-width: 100%; margin-top: 1rem;">
+		<a href="<?php echo home_url(); ?>"
+			><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png"
+			style="width: 32rem; max-width: 100%; margin-top: 1rem;"></a>
 		<p style="margin-bottom: 2em;">
 			<a style="font-size: 250%;" href="tel:+1-913-451-2300"><b>913.451.2300</b></a>
 		</p>
