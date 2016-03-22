@@ -33,4 +33,10 @@
 </div>
 <?php get_template_part ( 'section', 'gallery' ); ?>
 
+<div class="row">
+	<div class="col-xs-12">
+		<?php get_template_part ( 'section', 'links' ); ?>
+	</div>
+</div>
+
 <?php get_footer(); ?>
