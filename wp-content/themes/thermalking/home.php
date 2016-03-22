@@ -16,8 +16,21 @@
 
 <div class="row">
 	<div class="col-xs-12">
+		<?php get_template_part ( 'section', 'promise' ); ?>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12">
 		<?php get_template_part ( 'section', 'a' ); ?>
 	</div>
 </div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<h1>Gallery of Windows, Doors &amp; Siding</h1>
+	</div>
+</div>
+<?php get_template_part ( 'section', 'gallery' ); ?>
 
 <?php get_footer(); ?>

@@ -32,7 +32,7 @@ b, strong
 }
 
 /*
- * "undo" some bootstrap things
+ * reverse some bootstrap things
  */
 
 .navbar {
@@ -47,7 +47,8 @@ b, strong
 .navbar-collapse {
 	border-style: none;
 }
-.dropdown-menu {
+.dropdown-menu,
+.btn {
 	border-style: none;
 	border-radius: 0;
 }
@@ -57,7 +58,8 @@ b, strong
  */
 
 h1, h2, h3, h4, h5, h6,
-a
+a,
+.btn-primary, .btn-primary:hover
 { color: #792a41; }
 
 .navbar-row,
@@ -76,6 +78,10 @@ nav .active > a, nav .open > a, nav a:hover,
 .navbar-toggle, .navbar-toggle:hover
 { background-color: #efba12 !important; }
 
+.btn-primary,
+.btn-primary:hover
+{ background-color: #efba12; }
+
 /*
  * things that have the primary color as the background need to be white
  */
@@ -85,6 +91,11 @@ nav a { color: inherit !important; }
 nav,
 .footer-sig-row
 { color: white; }
+
+/* */
+.btn {
+	font-weight: bold;
+}
 
 /*
  * center the nav when wide
