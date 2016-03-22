@@ -18,9 +18,13 @@
 ?>
 <div class="row">
 
-<?php for($i=0; $i<6; $i++) { ?>
+<?php while ( $image_path = array_pop($subset) ) { ?>
 <div class="col-xs-6 col-sm-2">
-	<img style="max-width: 100%;" src="<?php echo '/' . array_pop($subset); ?>">
+	<a href="/<?php echo $image_path; ?>"><div style="height: 12rem;
+		background-image: url('<?php echo '/' . $image_path; ?>');
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;"></div></a>
 </div>
 <?php } ?>
 
