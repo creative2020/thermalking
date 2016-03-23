@@ -151,6 +151,11 @@ nav,
 	color: inherit;
 }
 
+/* gallery */
+.section-gallary-image {
+	margin-top: 0.5rem;
+}
+
 /* */
 .footer-contact-row {
 	background-color: #fdf7e6;
