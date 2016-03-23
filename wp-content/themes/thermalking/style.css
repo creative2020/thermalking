@@ -116,9 +116,13 @@ nav,
 #home-posts-row {
 	background-color: #fdf7e6;
 }
-
 .home-post-container {
+	height:300px;
+	max-height:300px;
+	overflow:hidden;
 	text-align: center;
+	margin:0px;
+	padding:0px;
 }
 .home-post-container .title {
 	background-color: #792a41;
@@ -129,7 +133,8 @@ nav,
 	padding-bottom: 0.4em;
 }
 .home-post-container .wp-post-image {
-	max-width: 100%;
+	min-width: 100%;
+	max-width:120%;
 	height: auto;
 }
 
