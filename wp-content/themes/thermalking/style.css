@@ -135,8 +135,11 @@ nav,
 
 /* */
 #section-a .container {
-	text-decoration: none;
 	text-align: center;
+	color: inherit;
+}
+#section-a .container > a {
+	text-decoration: none;
 	color: inherit;
 }
 #section-a .caption {
