@@ -20,6 +20,12 @@
 	</div>
 </div>
 
+<div id="home-posts-row" class="row">
+	<div class="col-xs-12">
+		<?php get_template_part ( 'section', 'home-posts' ); ?>
+	</div>
+</div>
+
 <div class="row">
 	<div class="col-xs-12">
 		<?php get_template_part ( 'section', 'a' ); ?>

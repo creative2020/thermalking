@@ -112,6 +112,27 @@ nav,
 	}
 }
 
+/* home posts section */
+#home-posts-row {
+	background-color: #fdf7e6;
+}
+
+.home-post-container {
+	text-align: center;
+}
+.home-post-container .title {
+	background-color: #792a41;
+	color: #fdf7e6;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0.6em;
+	padding-bottom: 0.4em;
+}
+.home-post-container .wp-post-image {
+	max-width: 100%;
+	height: auto;
+}
+
 /* */
 #section-a .container {
 	text-decoration: none;
