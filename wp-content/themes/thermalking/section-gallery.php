@@ -16,6 +16,9 @@
 		$subset[] = $image_paths[$i];
 	}
 ?>
+
+<h1>Gallery of Windows, Doors &amp; Siding</h1>
+
 <div class="row">
 
 <?php while ( $image_path = array_pop($subset) ) { ?>

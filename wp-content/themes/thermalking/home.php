@@ -20,26 +20,25 @@
 	</div>
 </div>
 
-<div id="home-posts-row" class="row">
+<div id="home-posts-row" class="row" style="margin-top: 2rem;">
 	<div class="col-xs-12">
 		<?php get_template_part ( 'section', 'home-posts' ); ?>
 	</div>
 </div>
 
-<div class="row">
+<div class="row" style="margin-top: 2rem; padding-bottom: 2rem; border-bottom: 8px solid gray;">
 	<div class="col-xs-12">
 		<?php get_template_part ( 'section', 'a' ); ?>
 	</div>
 </div>
 
-<div class="row">
+<div class="row" style="margin-top: 2rem;">
 	<div class="col-xs-12">
-		<h1>Gallery of Windows, Doors &amp; Siding</h1>
+		<?php get_template_part ( 'section', 'gallery' ); ?>
 	</div>
 </div>
-<?php get_template_part ( 'section', 'gallery' ); ?>
 
-<div class="row">
+<div class="row" style="margin-top: 2rem;">
 	<div class="col-xs-12">
 		<?php get_template_part ( 'section', 'links' ); ?>
 	</div>

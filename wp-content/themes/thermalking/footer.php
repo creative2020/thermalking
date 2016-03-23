@@ -1,4 +1,4 @@
-<div class="row footer-contact-row">
+<div class="row footer-contact-row" style="margin-top: 2rem;">
 	<a class="col-sm-4 container" href="#">
 		<h2>Guarantee</h2>
 		Our Perfect Windows are guaranteed in writing to save you up to <b>40% or More</b> on your energy bills.<br>
