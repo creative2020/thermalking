@@ -8,6 +8,9 @@ Thumbs.db
 
 # 2020 specific
 *_bu*.php
+wp-content/plugins/
+wp-content/gallery/
+wp-content/media/
 
 # wordpress specific
 wp-config.php
