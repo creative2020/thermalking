@@ -208,7 +208,16 @@ body {
 	width: 656px;
 	height: 330px;
 }
-
+/* home */
+.home-post-container {
+	height:300px;
+	max-height:300px;
+	overflow:hidden;
+}
+.home-post-container img {
+	min-width:100%;
+	min-height:275px;
+}
 
 /*Main*/
 
